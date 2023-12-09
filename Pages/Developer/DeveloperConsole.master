@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DeveloperConsole.master.cs" Inherits="Pages_Developer_DeveloperConsole" %>
+
+<!DOCTYPE html>
+<html>
+  
+<head runat="server">
+      <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+   <meta name="theme-color" content="#182848" />
+    <meta name="msapplication-navbutton-color" content="#0072ff" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0072ff" />
+     <meta name="description" content="LEAD programme is found in deshpande foundation and LEAD programme is Creators of LEADers"/>
+    <meta name="keywords" content="Student Programme,Lead Adda, Lead Programme hubli, leaders in hubli,leadership,deshpande foundation hubli,lead deshpande foundation,challenge, school ,lead colleges,lead mobile app,lead android app" />
+    <title>LEADCampus | Developer Console</title>
+    <link rel='shortcut icon' type='image/x-icon' href="../../CSS/Images/logo.png" />
+    <link href="../../CSS/StudentCSS/clevex-core.css" rel="stylesheet" />
+   
+   <link href="../../CSS/LoginCSS/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../CSS/StudentCSS/bootstrap.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body >
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="container-fluid">
+            <br />
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-success text-center"><a href="DeveloperIndex.aspx" style="text-decoration: none;"><span class="fa fa-home fa-2x"></span></a></li>
+                        <li class="list-group-item"><a href="CollegeMaster.aspx" style="text-decoration: none;">College Master</a></li>
+                        <li class="list-group-item"><a href="CollegeType.aspx" style="text-decoration: none;">College Type</a></li>
+                         <li class="list-group-item" style="text-decoration:none;">
+                             <asp:LinkButton ID="btnLogout" OnClick="btnLogout_Click" runat="server">Log out</asp:LinkButton></li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

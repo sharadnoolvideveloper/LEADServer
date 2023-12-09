@@ -1,0 +1,692 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Student.master.cs" Inherits="Pages_Student_Student" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <meta charset="utf-8"/>
+	<title>LEADCampus | Student Console (Lead) </title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<meta http-equiv="Copyright" content="Copyright (c) 2019 Deshpande Foundation India"/>
+	<meta name="distribution" content="global"/>
+	<meta name="language" content="english"/>
+	<meta http-equiv="content-language" content="en"/>
+	<meta name="rating" content="safe for kids"/>
+	<meta name="web_author" content="Deshpande Foundation India"/>
+	<meta name="resource-type" content="document"/>
+	<meta name="classification" content="Education"/>
+	<meta name="doc-type" content="public"/>
+	<meta http-equiv="cahe-control" content="cache"/>
+	<meta name="contactName" content="Vivek Pawar"/>
+	<meta name="contactOrganization" content="Deshpande Foundation India"/>
+    <meta name="og:latitude" content="15.3709"/>
+    <meta name="og:longitude" content="75.1234"/>
+	<meta name="contactCity" content="Hubballi"/>
+	<meta name="contactState" content="Karnataka"/>
+	<meta name="contactCountry" content="India"/>
+	<meta name="contact NetworkAddress" content="leadmis{@}dfmail{.}org"/>
+	<meta name="linkage" content="http://mis.leadcampus.org"/>
+	<meta property="og:site_name" content="http://mis.leadcampus.org"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="LEADCampus | Manager Console (LEAD)"/>
+	<meta property="og:url" content="http://mis.leadcampus.org"/>
+	<meta property="og:image" content="http://mis.leadcampus.org/css/images/logo.png"/>
+	<meta property="og:image" content="http://mis.leadcampus.org/CSS/LoginCSS/Images/banner.jpg"/>
+	<meta name="google-analytics" content="UA-126729086-1"/>
+	<meta name="author" content="Deshpande Foundation India: www.deshpandefoundationindia.org"/>
+	<meta property="og:description" content="The Leaders Accelerating Development (LEAD) Program of Deshpande Foundation, Hubballi, Karnataka Complaints... Start with THEY, Solutions... start with I"/>
+	<meta name="description" content="The Leaders Accelerating Development (LEAD) Program of Deshpande Foundation, Hubballi, Karnataka The Leaders Accelerating Development (LEAD) Program of Deshpande Foundation, Hubballi, Karnataka Complaints... Start with THEY, Solutions... start with I"/>
+	<meta name="keywords" content="Student Programme,Lead Adda, Lead Programme hubli, leaders in hubli,leadership,deshpande foundation hubli,lead deshpande foundation,challenge, school ,lead colleges,lead mobile app,lead android app"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+   <meta name="theme-color" content="#182848" />
+    <meta name="msapplication-navbutton-color" content="#0072ff" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0072ff" />
+    <link rel='shortcut icon' type='image/x-icon' href="../../CSS/Images/logo.png" />
+    
+
+    <link href="../../CSS/StudentCSS/entypo.css" rel="stylesheet" />
+    <link href="../../CSS/LoginCSS/font-awesome.min.css" rel="stylesheet" />
+
+   
+    <link href="../../CSS/StudentCSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../CSS/StudentCSS/clevex-core.css" rel="stylesheet" />
+    <link href="../../CSS/StudentCSS/clevex-forms.css" rel="stylesheet" />
+    <link href="../../CSS/StudentCSS/perfect-scrollbar.css" rel="stylesheet" />
+   <%-- <link href="../../CSS/CommonCSS/df-style.css" rel="stylesheet" />--%>
+  
+    <link href="../../CSS/LoginCSS/Style.css" rel="stylesheet" />   
+     <link href="../../CSS/CommonCSS/jquery.filer.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />  
+     <link href="../../CSS/CommonCSS/bootstrap-select.css" rel="stylesheet" />   
+     <link href="../../CSS/CommonCSS/toster.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/bootstrap-datepicker_fun.min.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/Custumized.css" rel="stylesheet" />
+    <script src="../../JS/CommonJS/jquery.min.js"></script>
+  <%--  <script src="../../JS/CommonJS/bootstrap.js"></script>--%>
+  
+    <script src="../../JS/CommonJS/toster.js"></script>
+    <script src="../../JS/CommonJS/Loader.js"></script>
+    <script src="../../JS/StudentJS/Numeric.js"></script>
+    <script src="../../JS/CommonJS/jquery-1.9.1.min.js"></script>
+    <%--<script src="../../JS/CommonJS/jquery-1.4.1.min.js"></script>--%>
+    <script src="../../JS/CommonJS/AngularJS.js"></script>
+    <script type="text/javascript">
+        function disableBackButton() {
+            window.history.forward();
+        }
+        setTimeout("disableBackButton()", 0);
+    </script>
+  
+ 
+     <script>
+        var app = angular.module('myApp', []);
+        app.controller('NotificationsCount', function ($scope, $http) {
+            $http.get("GetStudentTopNotificationsCount.ashx")
+              .then(function (response) {
+                  $scope.NotificationsCount = response.data;
+                  if (response.data.length > 0)
+                  {
+                      $("#note").text(response.data.length);
+                      $("#badge").show();
+                  }
+                  else
+                  {
+                      $("#badge").hide();
+                  }                 
+        
+              });
+        });
+       
+        app.controller('NotificationsAll', function ($scope, $http) {
+            $("#AllNotificationClick").click(function () {
+
+                $http.get("GetStudentAllNotifications.ashx")
+.then(function (response) {
+    $scope.NotificationAll = response.data;
+    document.getElementById("mySidenav").style.display = "block";
+    document.getElementById("mySidenav").style.width = "400px";
+  
+                  });
+            });
+
+        });
+    
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+          
+           
+        }
+
+     </script>
+   
+    <script type="text/javascript">
+         $(document).ready(function () {
+             $("#btnTopLogout").click(function () {
+                 $.ajax({
+                     url: "StudentProfile.aspx/Logout",
+                     contentType: "application/json; charset=utf-8",
+                     type: "POST",
+                     success: function (data) {
+                         window.location.href = '/../../Default.aspx?SessionOut=True';
+                        
+                     },
+                     error: function (x, y, z) {
+
+                     }
+                 });
+             });
+         });
+          </script>
+ 
+  <script>
+    $(document).ready(function () {
+        $("#Notification").click(function () {          
+            $.ajax({
+                url: "StudentProfile.aspx/ResetNotification",
+                contentType: "application/json; charset=utf-8",
+                type: 'POST',
+                success: function (data) {
+                    $("#badge").hide();
+                },
+                failure: function (response) {
+                   
+                }
+            });
+        });
+    });
+</script>
+
+      <style>
+        .progress-bar {
+            width: 0;
+            animation: progress 1.5s ease-in-out forwards;
+        }
+
+        .title {
+            opacity: 0;
+            animation: show 0.35s forwards ease-in-out 0.5s;
+        }
+
+
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes show {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+          input:focus ~ .floating-label,
+          input:not(:focus):valid ~ .floating-label {
+              top: 8px;
+              bottom: 10px;
+              left: 20px;
+              font-size: 11px;
+              opacity: 1;
+          }
+
+          .inputText {
+              font-size: 14px;
+              width: 200px;
+              height: 35px;
+          }
+
+          .floating-label {
+              position: absolute;
+              pointer-events: none;
+              left: 20px;
+              top: 18px;
+              transition: 0.2s ease all;
+          }
+    </style>
+  <script>
+        $(document).ready(function () {
+
+            $('.fun').selectpicker({
+                liveSearch: true,
+                maxOptions: 1,
+
+                template: {
+                    caret: '<span class="fa fa-angle-down "></span>'
+                }
+            });
+        });
+    </script>
+
+  <%--  <script src="../../JS/StudentJS/Alpha.js"></script>--%>
+   
+   
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+    <style>
+        .site-header .user-header-detail {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            padding: 60px;
+            color: #fff;
+        }
+        
+        .fun{
+
+        }
+         .sha {
+        }
+    </style>
+    
+      <style>
+        .progress-bar {
+            width: 0;
+            animation: progress 1.5s ease-in-out forwards;
+        }
+
+        .title {
+            opacity: 0;
+            animation: show 0.35s forwards ease-in-out 0.5s;
+        }
+
+
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes show {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        .img-thumbnail
+        {
+            border-color:#4800ff;
+        }
+        .progress
+        {
+            height:10px;
+        }
+ 
+    </style>
+    <style>
+        body {
+            margin: 0;
+        }
+        .icon-bar-sharad {
+            width: 70px;
+        }
+        .icon-bar-sharad a {
+                display: block;
+                text-align: center;
+                padding: 16px;
+                transition: all 0.3s ease;
+                color: white;
+                font-size: 25px;
+            }
+        .icon-bar-sharad a:hover {
+                    background-color: #000;
+                }
+        .icon-bar-sharad.active {
+            background-color: #4CAF50;
+            
+        }
+        .page-sidebar {
+            background-color: transparent;
+            margin-top: 60px;
+           
+        }
+        .tac {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 5rem;
+            height: calc(100vh - 5rem);
+            overflow-y: auto;
+        }
+    </style>
+  
+     <script>
+         $(document).ready(function () {
+             $("#menu").mouseenter(function () {
+                 $("#menu").attr("style", "position: fixed; top: 0px; bottom: 0px; height: 100%; left:-0.3em; width: 4em; transition: left 300ms ease 0s;");
+             });
+             $("#menu").mouseleave(function () {
+                 $("#menu").attr("style", "position: fixed; top: 0px; bottom: 0px; height: 100%; left:-4em; width: 4em; transition: left 300ms ease 0s;");
+             });
+         });
+     </script>
+  
+</head>
+<body ng-app="myApp" onload="disableBackButton()" style="background-color:#F5F5F5;" >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158699154-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-158699154-1');
+    </script>
+
+
+    <form id="form1" runat="server">
+      
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    
+        <div class="page-container">
+         
+            <!-- Page Sidebar -->
+         <%--   <div class="page-sidebar">
+                 <div class="icon-bar-sharad">
+                    <a class="active" href="#"><i class="fa fa-home"></i></a>
+                    <a href="#"><i class="fa fa-search"></i></a>
+                    <a href="#"><i class="fa fa-envelope"></i></a>
+                    <a href="#"><i class="fa fa-globe"></i></a>
+                    <a href="#"><i class="fa fa-trash"></i></a>
+                </div>
+            </div>--%>
+            <div class="page-sidebar" id="menu" >
+         
+                 <div class="icon-bar-sharad">
+
+                    <a href="Student_Details.aspx" id="leftDash" style="background-color:#00539c" data-toggle="tooltip" data-placement="top" class="hoverable" title="Dashboard"><i class="fa fa-dashcube"></i></a>
+                    <a href="StudentProfile.aspx" style="background-color:#258039"  class="active hoverable" data-toggle="tooltip" data-placement="top" title="Projects"><i class="fa fa-bolt"></i></a>
+                    <a href="Student_Enquiry.aspx" class="hoverable" style="background-color:#f70025" data-toggle="tooltip" data-placement="top" title="Request"><i class="fa fa-comment"></i></a>
+                    <a href="#" data-toggle="modal" class="hoverable" data-target="#POP_SuggestionFeedback" style="background-color:#4800ff"  data-placement="top" title="Suggestion"><i class="fa fa-recycle"></i></a>
+                   
+                </div>
+                     </div>
+                <!-- Site header  -->
+                <header class="site-header" style="display:none;" >
+                    <div class="user-header-box">
+                        <div class="background">
+
+                            <img src="../../CSS/Images/nav-head-bg.png" style="height: 250px; width: 100%;" />
+                        </div>
+                        <br />
+                          <br />
+                        
+                        <div class="user-header-detail">
+                          
+                            <h2 style="color: whitesmoke;"><b>Your Mentor </b></h2>
+                            <a href="#!user">
+                                <asp:Image ID="imgLeftAvatar" CssClass="img-circle avatar" ImageUrl="~/CSS/Images/NoImage.png" Height="100px" Width="100px" runat="server" /></a>
+                            <a href="#!name"><span class="white-text name">
+                                <b>
+                                    <asp:Label ID="lblLeftUserName" runat="server"></asp:Label></b></span></a>
+                            <a href="#!email"><span class="white-text email">
+                                <asp:Label ID="lblLeftMailid" runat="server"></asp:Label></span></a>
+                            <a href="#!mobileno"><span class="white-text">
+                                <asp:Label ID="lblMobileNo" runat="server"></asp:Label></span></a>
+                         
+
+                            <br />
+                            <div class="row text-center">
+                                <div class="col-xs-1"></div>
+                                <div class="col-xs-2 text-center" id="Facebook" runat="server">
+                                     <a id="btnFacebook" target="_blank" runat="server"></a>
+                                   
+                                </div>
+                                <div class="col-xs-2 text-center" id="Twitter" runat="server">
+                                     <a id="btnTwitter" target="_blank" runat="server"></a>
+                                    
+                                </div>
+                                <div class="col-xs-2 text-center" id="InstaGram" runat="server">
+                                    <a id="btnInstaGram" target="_blank" runat="server"></a>
+                                   
+                                </div>
+                                 <div class="col-xs-2 text-center" id="WhatsApp" runat="server">
+                                    <a id="btnWhataApp" target="_blank" runat="server"></a>
+                                   
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </header>
+                <!-- /site header -->
+                <!-- Main navigation -->
+                <div id="mySidenav" class="sidenav">
+                    <h3 style="padding-left:50px;">Notification
+                 <span class="pull-right"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></span>
+                        </h3>
+                    <div class="row">
+                        <div class="col-md-12">                            
+                            <ul class="timeline"  ng-controller="NotificationsAll" >
+                                <li ng-repeat="x in NotificationAll | limitTo : 50">
+                                    <a href="#" style="cursor:unset;">{{ x.Notification_Type }}</a>
+                                    <a href="#" class="pull-right" style="text-align:justify;text-wrap:normal;margin-right:10px;cursor:unset;font-size:12px;">{{ x.createDate }}</a>
+                                    <p style="text-align:justify;text-wrap:normal;margin-right:10px;">{{ x.Message }}</p>
+                                </li>                               
+                            </ul>
+                        </div>
+                    </div>
+                  
+
+                </div>
+                <ul id="side-nav" class="main-menu" style="display:none;">
+                    <li>
+                        <a href="Dashboard.aspx"><i class="icon-gauge"></i><span class="title">Dashboard</span></a>
+
+                    </li>
+                    <li>
+                        <a href="StudentProfile.aspx"><i class="fa fa-paperclip"></i><span class="title">Profile & Project Details</span></a>
+
+                    </li>
+                    
+                    <%--<li class="has-sub">
+                        <a href="#"><i class="fa fa-cog"></i><span class="title">Utility</span></a>
+                        <ul class="nav collapse">
+                            <li><a href="#"><span class="title">Request To Manager</span></a></li>
+
+                        </ul>
+                    </li>--%>
+                    <li>
+                       
+                        <asp:LinkButton ID="btnLeftLogout" OnClick="btnLeftLogout_Click" runat="server"><span class="fa fa-sign-out"></span>&nbsp; Logout  </asp:LinkButton>
+                       
+
+                    </li>
+
+                </ul>
+                <!-- /main navigation -->
+   
+            <!-- /page sidebar -->
+            <!-- Main container -->
+            <div class="main-container gray-bg">
+
+                <!-- Main header -->
+                <div class="main-header row" style="height:60px;">
+                    <div class="col-sm-6 col-xs-7">
+
+                        <!-- Site header  -->
+                        <div class="header-logo">
+                            <div class="menu-toggle"><a class="menu-icon" href="#menu"><i class="icon-menu"></i></a></div>
+                            <div class="site-logo">
+                                 <h3 class="visible-lg" >
+                                <a href="#">
+                                    <img src="../../CSS/Images/logo.png" style="width: 40px; height: 40px;" alt="Lead Programme" title="Lead Programme" />
+                                <span style="color:white"> Complaints... Start with THEY, Solutions... start with I</span>
+                             </a></h3>
+                            </div>
+                        </div>                   
+                        <!-- /site header -->
+                    </div>
+
+                    <div class="col-sm-6 col-xs-5">
+                        <div class="pull-right">
+
+                            <!-- User alerts -->
+                            <ul class="user-info">
+                               <!-- Notifications -->
+                                <li class="notifications dropdown" ng-controller="NotificationsCount" style="margin-top:5px;" id="Notification">
+                                    <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                        <i class="fa fa-bell fa-4x" style="font-size:18pt"></i><span class="badge badge-danger" style="top: -2px;display:none;" id="badge">
+                                            <label id="note" ng-value="notification_count"></label> </span></a>  <%--{{NotificationAll.length}}--%>
+                                    <ul class="dropdown-menu pull-right" style="height:500px;overflow:auto;">
+                                        <li class="first">
+                                            <div class="dropdown-content-header">Notifications</div>
+                                        </li>
+                                        <li>
+                                            <ul class="media-list" ng-repeat="x in NotificationsCount | limitTo : 30">
+                                                <li class="media">
+                                                    <div class="media-left text-info">
+                                                        <span class="fa fa-bell"></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <a class="media-heading" href="#">
+                                                            <span class="text-semibold">{{ x.Notification_Type }}</span>
+                                                            <span class="media-annotation pull-right small">{{ x.createDate }}</span>
+                                                        </a>
+                                                        <span class="text-muted">{{ x.Message }}</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                       <%-- <li class="external-last" ><a class="" onclick="openNav()" style="cursor:pointer;color:darkblue;" >All Notification</a> </li>--%>
+
+                                         <li class="external-last" ><a class="" id="AllNotificationClick" style="cursor:pointer;color:darkblue;" >All Notification</a> </li>
+                                    </ul>
+                                </li>
+                                <!-- /notifications -->
+                            </ul>
+                            <!-- /user alerts -->
+                            <!-- User info -->                   
+                            <ul class="user-info"  style="margin-top:5px;margin-right:30px;">
+                                <li class="profile-info dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false">
+                                        <asp:Image ID="ProfilePic" ImageUrl="~/CSS/Images/NoImage.png"  runat="server" CssClass="center-block img-circle" Style="width: 40px; height:40px;"
+                                        EnableTheming="True" />
+                                       
+
+                                    <!-- User action menu -->
+                                    <ul class="dropdown-menu">
+                                       
+                                         <li style="display:none"><a href="Dashboard.aspx"><i class="fa fa-dashboard"></i>&nbsp;Dashboard</a></li>
+                                        <li style="display:none"><a href="StudentProfile.aspx"><i class="fa fa-user"></i>&nbsp;My Stuffs</a></li>
+                                        <%--<li><a href="#/"><i class="fa fa-user"></i>&nbsp;Manager profile</a></li>--%>
+
+                                        <li class="divider"></li>
+
+                                        <li>
+                                            <a id="btnTopLogout" href="#"><i class="fa fa-sign-out"></i>&nbsp; Logout</a>                                           
+                                       </li>
+
+                                    </ul>
+                                    <!-- /user action menu -->
+
+                                </li>
+                            </ul>
+                            <!-- /user info -->
+                        </div>
+                    </div>
+                </div>
+           
+                <!-- /main header -->
+                <!-- Main content -->
+           
+                <div class="main-content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- /main content -->
+                <!-- Footer -->
+                <footer class="footer-main">
+                    <small>Handcrafted by</small><br />
+                    <strong>Deshpade Foundation</strong>  <a target="_blank" href="#/">Hubli</a>
+                    <span class="pull-right brandFont">
+                        <strong class="text-warning">Version 14.6.5</strong>
+                    </span>
+                </footer>
+                <!-- /footer -->
+
+            </div>
+            <!-- /main container -->
+
+        </div>
+
+          <div id="POP_SuggestionFeedback" class="modal fade" role="dialog" style="margin-top: 100px; width: auto;">
+
+        <div class="modal-dialog" >
+
+            <!-- Modal content-->
+            <div class="modal-content" style="background-color:#f5b44b" >
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="modal-body">
+                            <h3 >Suggestion / Feedback
+                          <a class="pull-right text-right" data-dismiss="modal">
+                              <i class="fa fa-remove text-primary fa-fw" style="cursor: pointer;"></i>
+                          </a>
+                            </h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <asp:DropDownList ID="ddlSuggestionFeedbackHeads" CssClass="form-control" runat="server"></asp:DropDownList>
+
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="* Required"
+                                        ForeColor="Red" Display="Dynamic" ValidationGroup="SugFeed" ControlToValidate="ddlSuggestionFeedbackHeads"
+                                        ValueToCompare="[Select]"  Operator="NotEqual" Type="String"></asp:CompareValidator>
+                                </div>
+                            </div>
+                                <br />
+                            <div class="row">
+                                <div class="col-md-12">
+                                 
+                                    <asp:TextBox ID="txtSuggestion" placeholder="Enter Suggestion"  TextMode="MultiLine" Rows="2" CssClass="form-control" autocomplete="off" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtSuggestion" runat="server" 
+                                        ErrorMessage="* Required" ForeColor="Red" Display="Dynamic" ValidationGroup="SugFeed"></asp:RequiredFieldValidator>
+
+                                </div>
+
+                            </div>
+                                 <br />
+                             <div class="row form-group">
+                                <div class="col-md-12">
+                                    <asp:TextBox ID="txtFeedBack" placeholder="Enter Feedback"  TextMode="MultiLine" Rows="2" CssClass="form-control" autocomplete="off" runat="server"></asp:TextBox>
+
+                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtFeedBack" runat="server" 
+                                        ErrorMessage="* Required" ForeColor="Red" Display="Dynamic" ValidationGroup="SugFeed"></asp:RequiredFieldValidator>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-4 col-md-offset-1">
+                                    <asp:LinkButton ID="btnSendSuggestionFeedback" OnClick="btnSendSuggestionFeedback_Click"  ValidationGroup="SugFeed"
+                                         CssClass="btn btn-dropbox btn-black brandFont" runat="server"><span class="fa fa-send">&nbsp; <i class="brandFont">
+                                              Send Suggestion/Feedback</i></span>  </asp:LinkButton>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+  
+          
+    </form>
+   
+
+    
+   <%-- <div class="menu-backdrop fade"></div>--%>
+   
+ 
+    <script src="../../JS/StudentJS/jquery.metisMenu.js"></script>
+    <script src="../../JS/StudentJS/bigslide.min.js"></script>
+    <script src="../../JS/StudentJS/functions.js"></script>
+     <script src="../../JS/CommonJS/bootstrap-select.js"></script>
+    <script src="../../JS/CommonJS/bootstrap-datepicker_fun.min.js"></script>
+  
+   
+   
+     <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+
+     <script type="text/javascript">
+         function POP_SuggestionFeedback() {
+             $('#POP_SuggestionFeedback').modal({
+                 backdrop: 'static',
+                 keyboard: false,
+                 show: true
+             });
+
+         }
+    </script>
+
+    
+</body>
+</html>

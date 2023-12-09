@@ -1,0 +1,256 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminPanel.master.cs" Inherits="Pages_Admin_AdminPanel" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+         <meta charset="utf-8"/>
+	<title>LEADCampus | Admin Console (Lead) </title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+	<meta http-equiv="Copyright" content="Copyright (c) 2019 Deshpande Foundation India"/>
+	<meta name="distribution" content="global"/>
+	<meta name="language" content="english"/>
+	<meta http-equiv="content-language" content="en"/>
+	<meta name="rating" content="safe for kids"/>
+	<meta name="web_author" content="Deshpande Foundation India"/>
+	<meta name="resource-type" content="document"/>
+	<meta name="classification" content="Education"/>
+	<meta name="doc-type" content="public"/>
+	<meta http-equiv="cahe-control" content="cache"/>
+	<meta name="contactName" content="Vivek Pawar"/>
+	<meta name="contactOrganization" content="Deshpande Foundation India"/>
+    <meta name="og:latitude" content="15.3709"/>
+    <meta name="og:longitude" content="75.1234"/>
+	<meta name="contactCity" content="Hubballi"/>
+	<meta name="contactState" content="Karnataka"/>
+	<meta name="contactCountry" content="India"/>
+	<meta name="contact NetworkAddress" content="leadmis{@}dfmail{.}org"/>
+	<meta name="linkage" content="http://mis.leadcampus.org"/>
+	<meta property="og:site_name" content="http://mis.leadcampus.org"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="LEADCampus | Manager Console (LEAD)"/>
+	<meta property="og:url" content="http://mis.leadcampus.org"/>
+	<meta property="og:image" content="http://mis.leadcampus.org/css/images/logo.png"/>
+	<meta property="og:image" content="http://mis.leadcampus.org/CSS/LoginCSS/Images/banner.jpg"/>
+	<meta name="google-analytics" content="UA-126729086-1"/>
+	<meta name="author" content="Deshpande Foundation India: www.deshpandefoundationindia.org"/>
+	<meta property="og:description" content="The Leaders Accelerating Development (LEAD) Program of Deshpande Foundation, Hubballi, Karnataka Complaints... Start with THEY, Solutions... start with I"/>
+	<meta name="description" content="The Leaders Accelerating Development (LEAD) Program of Deshpande Foundation, Hubballi, Karnataka The Leaders Accelerating Development (LEAD) Program of Deshpande Foundation, Hubballi, Karnataka Complaints... Start with THEY, Solutions... start with I"/>
+	<meta name="keywords" content="Student Programme,Lead Adda, Lead Programme hubli, leaders in hubli,leadership,deshpande foundation hubli,lead deshpande foundation,challenge, school ,lead colleges,lead mobile app,lead android app"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+   <meta name="theme-color" content="#182848" />
+    <meta name="msapplication-navbutton-color" content="#0072ff" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0072ff" />
+
+
+
+
+ 
+    <script src="../../JS/CommonJS/jquery.min.js"></script>
+    <script src="../../JS/CommonJS/bootstrap.js"></script>
+    <script src="../../JS/CommonJS/Numeric.js"></script>
+    <script src="../../JS/CommonJS/Loader.js"></script>
+    <link href="../../CSS/AdminCSS/bootstrap.css" rel="stylesheet" />
+    <link href="../../CSS/AdminCSS/style.css" rel="stylesheet" />
+    <link href="../../CSS/LoginCSS/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/df-style.css" rel="stylesheet" />
+    <link href="../../CSS/LoginCSS/Style.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/bootstrap-select.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/toster.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/bootstrap-datepicker_fun.min.css" rel="stylesheet" />
+
+    <style>
+        .jumbotron {
+            background-color: #0046e5;
+            color: white;
+            height: 180px;
+            margin-bottom: 10px;
+        }
+
+        .btn-default {
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+
+        .fun {
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+</head>
+<body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158699154-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-158699154-1');
+    </script>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div id="loader-overlay">
+            <img src="../../CSS/Images/loader.gif" alt="Loading" />
+        </div>
+        <div class="navbar navbar-default ">
+
+
+            <div class="navbar-header">
+                <button button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+             
+            </div>
+            <ul class="nav navbar-nav pull-right">
+                <li class="nav-item dropdown hidden-xs">
+                    <a class="nav-link dropdown-toggle" style="margin-left: 90px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img style="width: 40px; height: 40px; margin-top: -12px; margin-bottom: -12px;" class="img-circle " src="../../CSS/Images/logo.png" /></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <div class="list-group-item">
+                            <asp:LinkButton ID="btnLogoutProfile" OnClick="btnLogoutTopMenu_Click" runat="server"><span class="fa fa-sign-out "></span>&nbsp;Logout</asp:LinkButton>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div id="navbar" class="collapse navbar-collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-dashboard"></span>&nbsp;  Dashboard <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AdminAnalyticalCharts.aspx"><span class="fa fa-line-chart"></span>&nbsp;  Graphical Charts</a></li>
+                            <li><a href="SanboxWiseManagerList.aspx"><span class="fa fa-dashboard"></span>&nbsp;Sandbox Wise List</a></li>
+                            <li><a href="Admin_SandboxWiseTshirtList.aspx"><span class="fa fa-shield"></span>&nbsp;Sandbox Wise Tshirt</a></li>
+                            <li style="display:none;"><a href="Dashboard.aspx"><span class="fa fa-dashcube"></span>&nbsp;Manager Wise List</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="hidden"><a href="AdminProjectDetails.aspx"><span class="fa fa-file"></span>&nbsp;  Projects Details</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-users "></span>&nbsp; User Menu
+        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="UserCreation.aspx"><span class="fa fa-users"></span>&nbsp;New Manager Creation</a></li>
+                            <li><a href="CollegeTransfer.aspx"><span class="fa fa-exchange"></span>&nbsp;College Transfer</a></li>
+                             <li><a href="Admin_CollegePrincipal_Details.aspx"><span class="fa fa-university"></span>&nbsp;College Details</a></li>
+                           
+                        </ul>
+                    </li>
+                    <li class="hidden"><a href="#"><span class="fa fa-bicycle "></span>&nbsp;Masters</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-cog fa-spin"></span>&nbsp; Utility
+        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Admin_SendDetails.aspx"><span class="fa fa-send"></span>&nbsp;SMS/Mail Service</a></li>
+                            <li><a href="Admin_SendGeneralNotice.aspx"><span class="fa fa-phone"></span>&nbsp;General SMS Sending</a></li>
+                            <li><a href="Admin_SendGeneralMailNotice.aspx"><span class="fa fa-envelope"></span>&nbsp;General Mail Sending</a></li>
+                            <li><a href="Admin_SendDetails_Managers.aspx"><span class="fa fa-mail-forward"></span>&nbsp;Send Details to Manager</a></li>
+                            <li><a href="Events.aspx"><span class="fa fa-bullhorn"></span>&nbsp;Events</a></li>
+                            <li><a href="LeadStories.aspx"><span class="fa fa-lightbulb-o"></span>&nbsp;LEAD Stories</a></li>
+                            <li><a href="Admin_TshirtAllotment.aspx"><span class="fa fa-shield"></span>&nbsp;Tshirt Allotment</a></li>
+                            <li class="hidden"><a href="#"><span class="fa fa-wrench"></span>&nbsp;  Change Password</a></li>
+                        </ul>
+                    </li>
+           <%--         <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-rupee"></span>&nbsp; Payment Gateway
+                         <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Admin_Event_Programme.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Event Creation</a></li>
+                            <li><a href="Admin_Programme_Instruction.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Instructions</a></li>
+
+
+                        </ul>
+                    </li>--%>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-paragraph"></span>&nbsp; Reports
+        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                     
+                            <li><a href="Admin_StudentWiseDocumentDownload.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Student Wise Documents Download</a></li>
+                            <li><a href="Admin_ListringReports.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Manager Wise Listing Report</a></li>
+                             <li><a href="Admin_Consoliated_Report.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Consoliated Report</a></li>
+                            <li runat="server" id="WorkDiary1"><a href="WorkDiaryReportMaster.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Work Diary Report</a></li>
+                              <li><a href="Admin_Suggestion_Feedback.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Suggestion / Feedback</a></li>
+
+                        </ul>
+                    </li>
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa  fa-certificate"></span>&nbsp; Certificates
+        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                             <li><a href="Admin_Appreciate.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Appreciation Certificate</a></li>
+                            <li style="display:none;"><a href="Prayana_Certificate.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Prayana Certificate</a></li>
+                            <li style="display:none;"><a href="YuvaSummit_Certificate.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Yuva Certificate</a></li>
+                                 <li><a href="Admin_Lead_Certification.aspx"><span class="fa fa-arrow-right"></span>&nbsp;Staff Lead Certification</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div id="content">
+                    <div id="content-header">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+        <br />
+        <br />
+
+        <div class="jumbotron" style="background-color: #424242; margin-bottom: -10px; color: white; display: none">
+            <div class="container-fluid text-center">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h5 style="letter-spacing: 3px; font-size: small; font-style: italic" class="text-muted">Handcrafted by,</h5>
+                        <a href="http://www.deshpandefoundation.org/" target="_blank" style="letter-spacing: 3px; color: white; font-size: large; font-weight: bold" class="brandFont">
+                            <%-- <img id="Image1" class="img-circle" src="../../CSS/Images/dflogo.png" style="height: 50px; width: 50px;" />--%>
+                            &nbsp;&nbsp;Deshpande Foundation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <script src="../../JS/AdminJS/jquery-1.10.2.js"></script>
+    <%-- <script src="../../JS/AdminJS/bootstrap.js"></script>--%>
+    <script src="../../JS/CommonJS/bootstrap-select.js"></script>
+
+    <script src="../../JS/CommonJS/bootstrap-datepicker_fun.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('.fun').selectpicker({
+                liveSearch: true,
+                maxOptions: 1,
+                template: {
+                    caret: '<span class="fa fa-angle-down "></span>'
+                }
+            });
+        });
+    </script>
+</body>
+
+
+</html>

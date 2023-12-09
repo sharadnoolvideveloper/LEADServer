@@ -1,0 +1,337 @@
+﻿
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+    animation: show 0.35s forwards ease-in-out 0.5s;
+}
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 20px;
+        margin-top: 15px;
+        margin-left: 50px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+    margin-left: 30px;
+}
+
+    ul.timeline:before {
+        content: ' ';
+        background: #d4d9df;
+        display: inline-block;
+        position: absolute;
+        left: 29px;
+        width: 2px;
+        height: 100%;
+        z-index: 400;
+    }
+
+    ul.timeline > li {
+        margin: 20px 0;
+        padding-left: 20px;
+    }
+
+        ul.timeline > li:before {
+            content: ' ';
+            background: white;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid #22c0e8;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            z-index: 400;
+        }
+
+.color1 {
+    color: #2196F3 !important;
+    cursor: pointer;
+}
+
+
+.color2 {
+    color: #607D8B !important;
+    cursor: pointer;
+}
+
+.color3 {
+    color: #E91E63 !important;
+    cursor: pointer;
+}
+
+
+.color4 {
+    color: #3F51B5 !important;
+    cursor: pointer;
+}
+
+.color5 {
+    color: #00BCD4 !important;
+    cursor: pointer;
+}
+
+.color6 {
+    color: #FF5722 !important;
+    cursor: pointer;
+}
+
+.color7 {
+    color: #795548 !important;
+    cursor: pointer;
+}
+
+
+.color8 {
+    color: #9E9E9E !important;
+    cursor: pointer;
+}
+
+.color9 {
+    color: #00c6ff !important;
+    cursor: pointer;
+}
+
+.color10 {
+    color: #003265 !important;
+    cursor: pointer;
+}
+
+
+.color11 {
+    color: #f0ca28 !important;
+    cursor: pointer;
+}
+
+.color12 {
+    color: #009688 !important;
+    cursor: pointer;
+}
+
+.color13 {
+    color: #7c3a2d !important;
+    cursor: pointer;
+}
+
+.color14 {
+    color: #5f6c72 !important;
+    cursor: pointer;
+}
+
+.color15 {
+    color: #376db6 !important;
+    cursor: pointer;
+}
+
+.color16 {
+    color: #00363d !important;
+    cursor: pointer;
+}
+
+.color17 {
+    color: #004851 !important;
+    cursor: pointer;
+}
+
+
+.color18 {
+    color: #9d0a0e !important;
+    cursor: pointer;
+}
+
+.color19 {
+    color: #e60000 !important;
+    cursor: pointer;
+}
+
+.color20 {
+    color: #694d88 !important;
+    cursor: pointer;
+}
+
+.color21 {
+    color: #00274c !important;
+    cursor: pointer;
+}
+
+.color22 {
+    color: #51e898 !important;
+    cursor: pointer;
+}
+
+.color23 {
+    color: #998542 !important;
+    cursor: pointer;
+}
+
+.color24 {
+    color: #f24c7c !important;
+    cursor: pointer;
+}
+
+.color25 {
+    color: whitesmoke !important;
+    cursor: pointer;
+}
+
+.color26 {
+    color: black !important;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    /*background-color: rgba(0,0,0,.3);*/
+    border: 5px solid transparent;
+    border-radius: 10px;
+    min-height: 20px;
+    min-width: 20px;
+    height: 5px;
+    width: 5px;
+    z-index: 9999999;
+}
+
+::-webkit-scrollbar {
+    height: 15px;
+    width: 17px;
+    z-index: 9999999;
+    background: white;
+}
+
+::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+    z-index: 9999999;
+}
+
+.bg1 {
+    background-color: #2196F3 !important;
+}
+
+
+.bg2 {
+    background-color: #607D8B !important;
+}
+
+.bg3 {
+    background-color: #E91E63 !important;
+}
+
+
+.bg4 {
+    background-color: #3F51B5 !important;
+}
+
+.bg5 {
+    background-color: #00BCD4 !important;
+}
+
+.bg6 {
+    background-color: #FF5722 !important;
+}
+
+.bg7 {
+    background-color: #795548 !important;
+}
+
+
+.bg8 {
+    background-color: #9E9E9E !important;
+}
+
+.bg9 {
+    background-color: #00c6ff !important;
+}
+
+.bg10 {
+    background-color: #003265 !important;
+}
+
+
+.bg11 {
+    background-color: #f0ca28 !important;
+}
+
+.bg12 {
+    background-color: #009688 !important;
+}
+
+.bg13 {
+    background-color: #7c3a2d !important;
+}
+
+.bg14 {
+    background-color: #5f6c72 !important;
+}
+
+.bg15 {
+    background-color: #376db6 !important;
+}
+
+.bg16 {
+    background-color: #00363d !important;
+}
+
+.bg17 {
+    background-color: #004851 !important;
+}
+
+
+.bg18 {
+    background-color: #9d0a0e !important;
+}
+
+.bg19 {
+    background-color: #e60000 !important;
+}
+
+.bg20 {
+    background-color: #694d88 !important;
+}
+
+.bg21 {
+    background-color: #00274c !important;
+}
+
+.bg22 {
+    background-color: #51e898 !important;
+}
+
+.bg23 {
+    background-color: #998542 !important;
+}
+
+.bg24 {
+    background-color: #f24c7c !important;
+}
+
+.bg25 {
+    background-color: whitesmoke !important;
+}
+
+.bg26 {
+    background-color: black !important;
+}

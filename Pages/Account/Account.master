@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Account.master.cs" Inherits="Pages_Account_Account" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+   <title>LEADCampus | Account Console (Lead) </title>
+       <link rel='shortcut icon' type='image/x-icon' href="../../CSS/Images/logo.png" />
+    
+
+    <link href="../../CSS/StudentCSS/entypo.css" rel="stylesheet" />
+    <link href="../../CSS/LoginCSS/font-awesome.min.css" rel="stylesheet" />
+
+   
+    <link href="../../CSS/StudentCSS/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../CSS/StudentCSS/clevex-core.css" rel="stylesheet" />
+    <link href="../../CSS/StudentCSS/clevex-forms.css" rel="stylesheet" />
+    <link href="../../CSS/StudentCSS/perfect-scrollbar.css" rel="stylesheet" />
+   <%-- <link href="../../CSS/CommonCSS/df-style.css" rel="stylesheet" />--%>
+  
+    <link href="../../CSS/LoginCSS/Style.css" rel="stylesheet" />   
+     <link href="../../CSS/CommonCSS/jquery.filer.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/jquery.filer-dragdropbox-theme.css" rel="stylesheet" />  
+     <link href="../../CSS/CommonCSS/bootstrap-select.css" rel="stylesheet" />   
+     <link href="../../CSS/CommonCSS/toster.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/bootstrap-datepicker_fun.min.css" rel="stylesheet" />
+    <link href="../../CSS/CommonCSS/Custumized.css" rel="stylesheet" />
+    <script src="../../JS/CommonJS/jquery.min.js"></script>
+  <%--  <script src="../../JS/CommonJS/bootstrap.js"></script>--%>
+  
+    <script src="../../JS/CommonJS/toster.js"></script>
+    <script src="../../JS/CommonJS/Loader.js"></script>
+    <script src="../../JS/StudentJS/Numeric.js"></script>
+    <script src="../../JS/CommonJS/jquery-1.9.1.min.js"></script>
+    <%--<script src="../../JS/CommonJS/jquery-1.4.1.min.js"></script>--%>
+    <script src="../../JS/CommonJS/AngularJS.js"></script>
+    <script type="text/javascript">
+        function disableBackButton() {
+            window.history.forward();
+        }
+        setTimeout("disableBackButton()", 0);
+    </script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+
+
+     <script src="../../JS/StudentJS/jquery.metisMenu.js"></script>
+    <script src="../../JS/StudentJS/bigslide.min.js"></script>
+    <script src="../../JS/StudentJS/functions.js"></script>
+     <script src="../../JS/CommonJS/bootstrap-select.js"></script>
+    <script src="../../JS/CommonJS/bootstrap-datepicker_fun.min.js"></script>
+  
+   
+   
+     <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+
+</body>
+</html>
